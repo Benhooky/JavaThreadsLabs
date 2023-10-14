@@ -37,6 +37,7 @@ To run the program, follow these steps:
 javac BerryPickingSimulation.java
 java BerryPickingSimulation
 ```
+# 2 Lab
 # Parallel Linear System Solver with Tridiagonal Matrices
 
 **Parallel Linear System Solver with Tridiagonal Matrices** is a Java program that focuses on the solution of linear systems with tridiagonal matrices. The project demonstrates the implementation of a highly efficient method known as the Tridiagonal Matrix Algorithm, or "the method of elimination," for solving these systems. It further introduces parallelization to enhance performance.
