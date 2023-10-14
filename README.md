@@ -36,3 +36,42 @@ To run the program, follow these steps:
 ```bash
 javac BerryPickingSimulation.java
 java BerryPickingSimulation
+
+# Parallel Linear System Solver with Tridiagonal Matrices
+
+**Parallel Linear System Solver with Tridiagonal Matrices** is a Java program that focuses on the solution of linear systems with tridiagonal matrices. The project demonstrates the implementation of a highly efficient method known as the Tridiagonal Matrix Algorithm, or "the method of elimination," for solving these systems. It further introduces parallelization to enhance performance.
+
+## Introduction
+
+The solution of linear systems is fundamental to computational mathematics, applicable to a wide range of practical problems, making it one of the most common and vital tasks in the field of computational mathematics. While numerous methods and software packages are available for solving linear systems, understanding the fundamental principles of these methods and their algorithms is essential for effective utilization.
+
+This project deals with the particular case where linear systems feature matrices that are sparsely populated, containing many zero elements. However, these matrices also exhibit a specific structure. In this context, the project focuses on tridiagonal matrices. Tridiagonal matrices have non-zero elements primarily along the main diagonal and the two adjacent diagonals.
+
+## Tridiagonal Matrix Solution Method
+
+The project implements the "Tridiagonal Matrix Algorithm" or "Gaussian Elimination" to solve linear systems with tridiagonal matrices. This algorithm simplifies the process of solving linear systems with tridiagonal matrices, reducing the number of required operations significantly.
+
+## Method Implementation
+
+The implementation of the tridiagonal matrix solver includes the following key steps:
+
+1. **Forward Pass**: In this step, the program calculates the "alpha" and "beta" coefficients, which are essential for solving the tridiagonal system. This step begins with the first equation and iterates forward to calculate coefficients for each equation.
+
+2. **Backward Pass**: The backward pass is where the solution values for the variables are determined. Starting from the last equation, the program iterates backward to compute the variables' values.
+
+3. **Parallelization**: The program leverages multi-threading to parallelize the forward and backward passes, improving the efficiency and performance of the solver. This parallelization enables faster solutions for larger systems.
+
+## Usage
+
+To use this program, follow these steps:
+
+1. Clone the repository to your local machine.
+
+2. Navigate to the project directory.
+
+3. Compile and run the project using the following commands:
+
+   ```bash
+   javac SLAUSolver.java
+   java SLAUSolver
+
