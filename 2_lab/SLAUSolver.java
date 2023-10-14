@@ -1,35 +1,35 @@
 class SLAUSolver {
-    private final int n; // Размерность СЛАУ
+    private final int n; // Dimension of the system of linear equations (СЛАУ)
 
     public SLAUSolver(int n) {
         this.n = n;
     }
 
-    // Левая прогонка
+    // Forward pass
     private void forwardPass(double[][] A, double[] b, double[] alpha, double[] beta) {
-        // Вычисляем начальные значения
+        // Calculate initial values
         alpha[0] = -A[0][1] / A[0][0];
         beta[0] = b[0] / A[0][0];
 
-        // Проходим по уравнениям, начиная со второго
+        // Iterate through equations starting from the second one
         for (int i = 1; i < n - 1; i++) {
             double denom = A[i][i] + A[i][i - 1] * alpha[i - 1];
             alpha[i] = -A[i][i + 1] / denom;
             beta[i] = (b[i] - A[i][i - 1] * beta[i - 1]) / denom;
         }
 
-        // Отдельно вычисляем последний элемент
+        // Calculate the last element separately
         int lastIdx = n - 1;
         beta[lastIdx] = (b[lastIdx] - A[lastIdx][lastIdx - 1] * beta[lastIdx - 1])
                 / (A[lastIdx][lastIdx] + A[lastIdx][lastIdx - 1] * alpha[lastIdx - 1]);
     }
 
-    // Правая прогонка
+    // Backward pass
     private void backwardPass(double[][] A, double[] b, double[] alpha, double[] beta, double[] x) {
-        // Находим последний элемент решения
+        // Find the last solution element
         x[n - 1] = beta[n - 1];
 
-        // Обратный проход
+        // Backward pass
         for (int i = n - 2; i >= 0; i--) {
             x[i] = alpha[i] * x[i + 1] + beta[i];
         }

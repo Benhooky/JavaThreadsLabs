@@ -9,31 +9,32 @@ public class Main {
         double[] b;
         double[] x;
         int n;
-        // Считываем данные из файла matrix.txt
+
+        // Read data from the file matrix.txt
         File file = new File("Java/2_lab/matrix.txt");
         FileInputStream fileInputStream = new FileInputStream(file);
         Scanner scanner = new Scanner(fileInputStream);
         n = scanner.nextInt();
 
-        // Создание матрицы
+        // Create the matrix
         A = new double[n][n];
 
-        // Чтение матрицы
+        // Read the matrix
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 A[i][j] = scanner.nextDouble();
             }
         }
 
-        // Создание вектора b
+        // Create vector b
         b = new double[n];
 
-        // Чтение вектора b
+        // Read vector b
         for (int i = 0; i < n; i++) {
             b[i] = scanner.nextDouble();
         }
 
-        // Закрытие сканнера и потока
+        // Close the scanner and stream
         scanner.close();
         x = new double[n];
         SLAUSolver solver = new SLAUSolver(n);
