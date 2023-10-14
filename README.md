@@ -61,6 +61,18 @@ The implementation of the tridiagonal matrix solver includes the following key s
 2. **Backward Pass**: The backward pass is where the solution values for the variables are determined. Starting from the last equation, the program iterates backward to compute the variables' values.
 
 3. **Parallelization**: The program leverages multi-threading to parallelize the forward and backward passes, improving the efficiency and performance of the solver. This parallelization enables faster solutions for larger systems.
+ 
+## Program Structure
+The program comprises two main Java files:
+
+Main.java: This file is responsible for reading a tridiagonal matrix and a vector b from the "matrix.txt" file. It then uses the SLAUSolver class to solve the linear system and displays the results.
+
+SLAUSolver.java: This class implements the parallel tridiagonal matrix algorithm for solving linear systems with tridiagonal matrices. It utilizes multi-threading to enhance efficiency.
+
+The program also includes a sample data file:
+
+matrix.txt: This file contains a sample tridiagonal matrix and vector b for testing the program. You can replace the data in this file with your own linear system for solving.
+This structure outlines the key components of the program and how they work together to solve linear systems with tridiagonal matrices.
 
 ## Usage
 
